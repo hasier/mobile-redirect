@@ -11,7 +11,7 @@ def root():
     return Response(status=200)
 
 
-@app.route('/tropo')
+@app.route('/tropo', methods=['POST'])
 def tropo():
     session = Session(request.get_json(force=True))
     tropo = Tropo()

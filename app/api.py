@@ -13,7 +13,7 @@ def root():
 
 @app.route('/tropo', methods=['POST'])
 def tropo():
-    session = Session(request.get_json(force=True))
+    session = Session(request.data)
     tropo = Tropo()
     tropo.say('It works!')
     return Response(response=tropo.RenderJson(), status=200, mimetype='application/json')

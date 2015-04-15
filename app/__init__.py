@@ -8,3 +8,5 @@ from config import REDIS_URL
 app = Flask(__name__)
 app.config.from_object('app.config')
 redis = from_url(REDIS_URL)
+
+import api

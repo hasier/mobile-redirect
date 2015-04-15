@@ -1,7 +1,7 @@
 __author__ = 'hasier'
 
-from flask import Response, jsonify, request
-from tropo import Session
+from flask import Response, request
+from tropo import Session, Tropo
 
 from app import app
 
@@ -14,6 +14,6 @@ def root():
 @app.route('/tropo')
 def tropo():
     session = Session(request.get_json(force=True))
-    return jsonify({
-        "tropo": [{"say": {"value": "It works!"}}]
-    })
+    tropo = Tropo()
+    tropo.say('It works!')
+    return Response(response=tropo.RenderJson(), status=200, mimetype='application/json')
